@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="navbar fixed w-full transition-all shadow">
+    <div className="navbar fixed w-full transition-all shadow z-50">
       <div className="container mx-auto px-4">
         <div className="navbar-box flex items-center justify-between py-4">
           {/* Logo */}
@@ -14,15 +15,15 @@ const Navbar = () => {
 
           {/* Menu Desktop */}
           <ul className="hidden md:flex gap-8">
-            <li><a href="#" className="font-medium opacity-75 hover:opacity-100">Beranda</a></li>
-            <li><a href="#" className="font-medium opacity-75 hover:opacity-100">Tentang Kami</a></li>
-            <li><a href="#" className="font-medium opacity-75 hover:opacity-100">Daftar Produk</a></li>
-            <li><a href="#" className="font-medium opacity-75 hover:opacity-100">Promo</a></li>
+            <li><Link to="/" className="font-medium opacity-75 hover:opacity-100">Beranda</Link></li>
+            <li><Link to="/tentang" className="font-medium opacity-75 hover:opacity-100">Tentang Kami</Link></li>
+            <li><Link to="/produk" className="font-medium opacity-75 hover:opacity-100">Daftar Produk</Link></li>
+            <li><Link to="/promo" className="font-medium opacity-75 hover:opacity-100">Promo</Link></li>
           </ul>
 
           {/* Login Desktop */}
           <div className="hidden md:block">
-            <a href="#" className="font-medium hover:underline">Login</a>
+            <Link to="/login" className="font-medium hover:underline">Login</Link>
           </div>
 
           {/* Hamburger Button */}
@@ -37,11 +38,11 @@ const Navbar = () => {
         {/* Menu Mobile */}
         {isOpen && (
           <div className="md:hidden flex flex-col gap-4 pb-4">
-            <a href="#" className="font-medium opacity-75 hover:opacity-100">Beranda</a>
-            <a href="#" className="font-medium opacity-75 hover:opacity-100">Tentang Kami</a>
-            <a href="#" className="font-medium opacity-75 hover:opacity-100">Daftar Produk</a>
-            <a href="#" className="font-medium opacity-75 hover:opacity-100">Promo</a>
-            <a href="#" className="font-medium hover:underline">Login</a>
+            <Link to="/" className="font-medium opacity-75 hover:opacity-100">Beranda</Link>
+            <Link to="/tentang" className="font-medium opacity-75 hover:opacity-100">Tentang Kami</Link>
+            <Link to="/produk" className="font-medium opacity-75 hover:opacity-100">Daftar Produk</Link>
+            <Link to="/promo" className="font-medium opacity-75 hover:opacity-100">Promo</Link>
+            <Link to="/login" className="font-medium hover:underline">Login</Link>
           </div>
         )}
       </div>
